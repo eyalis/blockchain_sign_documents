@@ -1,6 +1,7 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Document Signer",
+  "name": "Blockchain Document Signer",
+  "description": "This web app helps you to sign document with parties whose addresses are known",
   "icons": [
     {
       "src": "favicon.ico",

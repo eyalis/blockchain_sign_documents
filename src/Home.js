@@ -30,7 +30,7 @@ function Home() {
                         to="/recuperar-documento"
                         image={image3}
                         title="Recuperar documento"
-                        description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur." />
+                        description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur investigud amidus." />
                 </Grid>
             </Grid>
         </div>
