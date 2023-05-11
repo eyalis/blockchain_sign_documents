@@ -1,5 +1,5 @@
 import React from "react";
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useLocation } from "react-router-dom";
 import {
     AppBar,
     Toolbar,
@@ -15,11 +15,17 @@ import {
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 
+
 const NavBar = () => {
+    const location = useLocation();
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
+    };
+
+    const shouldShowMenuItems = () => {
+        return location.pathname !== "/";
     };
 
     const renderMenuItems = () => (
@@ -43,7 +49,13 @@ const NavBar = () => {
                 { text: "Firmar documento", to: "/firmar-documento" },
                 { text: "Recuperar documento", to: "/recuperar-documento" },
             ].map((item, index) => (
-                <ListItem button key={index} component={RouterLink} to={item.to} onClick={handleDrawerToggle}>
+                <ListItem
+                    button
+                    key={index}
+                    component={RouterLink}
+                    to={item.to}
+                    onClick={handleDrawerToggle}
+                >
                     <ListItemText primary={item.text} />
                 </ListItem>
             ))}
@@ -54,12 +66,22 @@ const NavBar = () => {
         <div>
             <AppBar position="static">
                 <Toolbar>
-                    <Typography variant="h6" component={RouterLink} to="/" sx={styles.title}>
+                    <Typography
+                        variant="h6"
+                        component={RouterLink}
+                        to="/"
+                        sx={styles.title}
+                    >
                         Document Signer
                     </Typography>
-                    <Hidden smDown>{renderMenuItems()}</Hidden>
+                    <Hidden smDown>{shouldShowMenuItems() && renderMenuItems()}</Hidden>
                     <Hidden smUp>
-                        <IconButton edge="end" color="inherit" aria-label="menu" onClick={handleDrawerToggle}>
+                        <IconButton
+                            edge="end"
+                            color="inherit"
+                            aria-label="menu"
+                            onClick={handleDrawerToggle}
+                        >
                             <MenuIcon />
                         </IconButton>
                     </Hidden>
