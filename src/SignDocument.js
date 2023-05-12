@@ -51,7 +51,7 @@ const SignDocument = () => {
         e.preventDefault();
         try {
             const { web3Instance, account, contractInstance } = await connectWallet();
-            await contractInstance.methods.signDocument(documentId).send({ from: account });
+            await contractInstance.methods.signDocument(documentId).send({ from: account, gas: 100000, gasPrice: web3Instance.utils.toWei("10", "gwei") });
             setSigningStatus("Signing successful");
 
             const documentInfo = await contractInstance.methods.getDocument(documentId).call();
@@ -67,7 +67,7 @@ const SignDocument = () => {
             setSignedAddresses(signed);
         } catch (error) {
             console.error("Error conectando la billetera o interactuando con el contrato:", error);
-            setSigningStatus("Signing failed");
+            setSigningStatus(`Signing failed: ${error.message}`);
         }
     };
 
@@ -98,8 +98,8 @@ const SignDocument = () => {
                 {ipfsHash && (
                     <div>
                         <h3>IPFS Document</h3>
-                        <a href={`https://ipfsexplorer.online/ipfs/${ipfsHash}`} target="_blank" rel="noreferrer">
-                            https://ipfsexplorer.online/ipfs/{ipfsHash}
+                        <a href={`https://ipfs.io/ipfs/${ipfsHash}`} target="_blank" rel="noreferrer">
+                            https://ipfs.io/ipfs/{ipfsHash}
                         </a>
                     </div>
                 )}

@@ -4,7 +4,12 @@ import Web3 from "web3";
 import CONTRACT_ABI from "./contractAbi.json";
 
 // Define the contract address for the smart contract
-const CONTRACT_ADDRESS = "0xe13FB9A60DEe619f0E2ACa80F6B04a345217B7b7";
+
+// Ganache
+//const CONTRACT_ADDRESS = "0xe13FB9A60DEe619f0E2ACa80F6B04a345217B7b7";
+
+// BSC Testnet
+const CONTRACT_ADDRESS = "0x304c4619C0f62de63781EB99E7C7149dDCC1eAE3";
 
 // Function to connect the user's wallet
 export const connectWallet = async () => {
