@@ -31,13 +31,13 @@ const NavBar = () => {
     const renderMenuItems = () => (
         <Box>
             <Button color="inherit" component={RouterLink} to="/emitir-documento">
-                Emitir documento
+                Issue Document
             </Button>
             <Button color="inherit" component={RouterLink} to="/firmar-documento">
-                Firmar documento
+                Sign Document
             </Button>
             <Button color="inherit" component={RouterLink} to="/recuperar-documento">
-                Recuperar documento
+                Retrieve Document
             </Button>
         </Box>
     );
