@@ -7,13 +7,15 @@ const CardItem = ({ image, title, description, to }) => {
         <Link to={to} style={{ textDecoration: 'none' }}>
             <Card sx={{ ...styles.card, ...styles.hover }}>
                 <CardMedia component="img" image={image} height="250" />
-                <CardContent>
-                    <Typography variant="h5" component="h2" gutterBottom>
-                        {title}
-                    </Typography>
-                    <Typography variant="body2" color="text.secondary">
-                        {description}
-                    </Typography>
+                <CardContent sx={styles.cardContent}>
+                    <div style={styles.contentContainer}>
+                        <Typography variant="h5" component="h2" gutterBottom>
+                            {title}
+                        </Typography>
+                        <Typography variant="body2" color="text.secondary">
+                            {description}
+                        </Typography>
+                    </div>
                 </CardContent>
             </Card>
         </Link>
@@ -34,7 +36,15 @@ const styles = {
             boxShadow: '0 4px 20px 0 rgba(0,0,0,0.12)',
         },
     },
+    cardContent: {
+        height: '100%',
+    },
+    contentContainer: {
+        display: 'grid',
+        gridTemplateRows: 'auto 1fr',
+        gap: '8px',
+        height: '100%',
+    },
 };
 
 export default CardItem;
-

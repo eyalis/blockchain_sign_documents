@@ -16,21 +16,21 @@ function Home() {
                         to="/issue-document"
                         image={image1}
                         title="Issue document"
-                        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
+                        description="You can issue a document that will be recorded on a blockchain, allowing you to associate signatures from different addresses with an IPFS document, as well as determine who can sign." />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <CardItem
                         to="/sign-document"
                         image={image2}
                         title="Sign document"
-                        description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
+                        description="You can sign a document using your digital signature, ensuring the authenticity and integrity of the content." />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <CardItem
                         to="/retrieve-document"
                         image={image3}
                         title="Retrieve document"
-                        description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur investigud amidus." />
+                        description="You can retrieve a document by providing the necessary details, allowing you to access the content and verify its authenticity." />
                 </Grid>
             </Grid>
         </div>
