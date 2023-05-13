@@ -30,13 +30,13 @@ const NavBar = () => {
 
     const renderMenuItems = () => (
         <Box>
-            <Button color="inherit" component={RouterLink} to="/emitir-documento">
+            <Button color="inherit" component={RouterLink} to="/issue-document">
                 Issue Document
             </Button>
-            <Button color="inherit" component={RouterLink} to="/firmar-documento">
+            <Button color="inherit" component={RouterLink} to="/sign-document">
                 Sign Document
             </Button>
-            <Button color="inherit" component={RouterLink} to="/recuperar-documento">
+            <Button color="inherit" component={RouterLink} to="/retrieve-document">
                 Retrieve Document
             </Button>
         </Box>
@@ -45,9 +45,9 @@ const NavBar = () => {
     const renderDrawerMenuItems = () => (
         <List>
             {[
-                { text: "Emitir documento", to: "/emitir-documento" },
-                { text: "Firmar documento", to: "/firmar-documento" },
-                { text: "Recuperar documento", to: "/recuperar-documento" },
+                { text: "Issue document", to: "/issue-document" },
+                { text: "Sign document", to: "/sign-document" },
+                { text: "Retrieve document", to: "/retrieve-document" },
             ].map((item, index) => (
                 <ListItem
                     button

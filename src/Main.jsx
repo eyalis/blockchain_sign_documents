@@ -7,15 +7,15 @@ function Main() {
             <h1>Document Signer</h1>
             <div>
                 <h2>Issue document</h2>
-                <Link to="/emitir-documento">Issue document</Link>
+                <Link to="/issue-document">Issue document</Link>
             </div>
             <div>
-                <h2>Firmar documento</h2>
-                <Link to="/firmar-documento">Sign document</Link>
+                <h2>Sign document</h2>
+                <Link to="/sign-document">Sign document</Link>
             </div>
             <div>
                 <h2>Retrieve document</h2>
-                <Link to="/recuperar-documento">Retrieve document</Link>
+                <Link to="/retrieve-document">Retrieve document</Link>
             </div>
         </div>
     );

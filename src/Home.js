@@ -13,21 +13,21 @@ function Home() {
             <Grid container sx={styles.gridContainer} spacing={8}>
                 <Grid item xs={12} sm={4}>
                     <CardItem
-                        to="/emitir-documento"
+                        to="/issue-document"
                         image={image1}
                         title="Issue document"
                         description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <CardItem
-                        to="/firmar-documento"
+                        to="/sign-document"
                         image={image2}
                         title="Sign document"
                         description="Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat." />
                 </Grid>
                 <Grid item xs={12} sm={4}>
                     <CardItem
-                        to="/recuperar-documento"
+                        to="/retrieve-document"
                         image={image3}
                         title="Retrieve document"
                         description="Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur investigud amidus." />

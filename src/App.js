@@ -13,9 +13,9 @@ const App = () => {
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/emitir-documento" element={<IssueDocument />} />
-        <Route path="/firmar-documento" element={<SignDocument />} />
-        <Route path="/recuperar-documento" element={<RetrieveDocument />} />
+        <Route path="/issue-document" element={<IssueDocument />} />
+        <Route path="/sign-document" element={<SignDocument />} />
+        <Route path="/retrieve-document" element={<RetrieveDocument />} />
       </Routes>
     </Router>
   );
