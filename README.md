@@ -1,70 +1,27 @@
-# Getting Started with Create React App
+# Blockchain Document Signer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Author: Eyal Szewkis
 
-## Available Scripts
+## Demo
 
-In the project directory, you can run:
+Check out the [demo](https://bc-document-signer.appspot.com/) of the web app.
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Blockchain Document Signer is a web application that utilizes blockchain technology to securely store and manage digital documents. It provides three main features: Issue Document, Sign Document, and Retrieve Document.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Issue Document
 
-### `npm test`
+The "Issue Document" section allows users to record a document onto the blockchain. By providing an IPFS hash and a list of authorized signers' addresses, the document is stored in a tamper-proof manner on the blockchain. This ensures the document's authenticity and immutability.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Sign Document
 
-### `npm run build`
+In the "Sign Document" section, users can digitally sign a document that has been issued on the blockchain. By entering the document ID and using a software wallet, users can add their digital signature to the document. The signing process is securely executed on the blockchain, providing a reliable and transparent verification mechanism.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Retrieve Document
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The "Retrieve Document" section enables users to access and view documents stored on the blockchain. By entering the document ID, users can retrieve the document's information, including the IPFS hash, owner, and timestamp. Additionally, if the document has authorized signers, their signing status is displayed, indicating whether each signer has signed the document or not.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Smart Contract Interaction
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The `web3Helper.js` component allows users to specify the contract and blockchain network they want to interact with. Modify the component to configure the smart contract address and network details according to your requirements.
