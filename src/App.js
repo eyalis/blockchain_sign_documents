@@ -6,6 +6,7 @@ import Home from "./Home";
 import IssueDocument from "./IssueDocument";
 import SignDocument from "./SignDocument";
 import RetrieveDocument from "./RetrieveDocument";
+import InfoPage from "./pages/InfoPage";
 
 const App = () => {
   return (
@@ -18,6 +19,7 @@ const App = () => {
             <Route path="/issue-document" element={<IssueDocument />} />
             <Route path="/sign-document" element={<SignDocument />} />
             <Route path="/retrieve-document" element={<RetrieveDocument />} />
+            <Route path="/info" element={<InfoPage />} />
           </Routes>
         </div>
         <Footer />

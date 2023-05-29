@@ -2,6 +2,9 @@ import React, { useState, useEffect } from "react";
 import { connectWallet } from "./web3Helper";
 import DocumentInfo from "./pages/DocumentInfo";
 import SignerInfo from "./pages/SignerInfo";
+import BlockchainInfo from './components/BlockchainInfo';
+import { Grid } from "@mui/material";
+import { css } from "@emotion/react";
 import {
     Wrapper,
     Container,
@@ -115,17 +118,19 @@ const RetrieveDocument = () => {
 
     return (
         <Wrapper>
+            <BlockchainInfo />
+            <Grid container sx={styles.gridContainer} spacing={8}></Grid>
             <Container>
                 <h2>Retrieve a Document</h2>
 
                 <div>
-                    <p>On this page, you can "retrieve" a document stored on the BNB Smart Chain. What does that mean? Well, it means you can access and view a document that has been recorded on the blockchain. Cool, right?</p>
+                    <p>On this page, you can "retrieve" a document stored on the blockchain. What does that mean? Well, it means you can access and view a document that has been recorded on the blockchain. Cool, right?</p>
 
                     <p>To retrieve a document, simply enter the document ID and click the "Get Document" button. The page will fetch the document information, including the IPFS hash, owner, and timestamp. You can click the IPFS hash link to view the document.</p>
 
                     <p>If the document has authorized signers, you'll also see a list of signers and their signing status. Each signer's address is checked to see if they have signed the document or not.</p>
 
-                    <p>Please note that you'll need a software wallet to sign transactions and interact with the BNB Smart Chain. Make sure you have a compatible wallet set up before retrieving any documents.</p>
+                    <p>Please note that you'll need a software wallet to sign transactions and interact with the blockchain. Make sure you have a compatible wallet set up before retrieving any documents.</p>
 
                     <p>That's it! Have fun retrieving your documents from the blockchain!</p>
                 </div>
@@ -155,5 +160,15 @@ const RetrieveDocument = () => {
         </Wrapper>
     );
 };
+
+const styles = {
+    gridContainer: css`
+padding: 24px;
+@media (min-width: 600px) {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+`,
+}
 
 export default RetrieveDocument;

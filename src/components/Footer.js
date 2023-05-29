@@ -10,6 +10,10 @@ const Footer = () => {
                 <Link to="https://www.linkedin.com/in/eyal-szewkis/" target="_blank" rel="noopener">
                     Eyal Szewkis
                 </Link>
+                {" | "}
+                <Link to="/info">
+                    About this App
+                </Link>
             </Typography>
         </Box>
     );
@@ -24,6 +28,6 @@ const styles = {
     footerText: {
         fontSize: "12px",
     },
-};;
+};
 
 export default Footer;

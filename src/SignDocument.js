@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { connectWallet } from "./web3Helper";
+import BlockchainInfo from './components/BlockchainInfo';
+import { Grid } from "@mui/material";
+import { css } from "@emotion/react";
 import {
     Wrapper,
     Container,
@@ -8,6 +11,7 @@ import {
     Button,
     ErrorMessage,
 } from "./styles/SignDocumentStyles";
+
 
 const SignDocument = () => {
     const [documentId, setDocumentId] = useState("");
@@ -59,11 +63,13 @@ const SignDocument = () => {
 
     return (
         <Wrapper>
+            <BlockchainInfo />
+            <Grid container sx={styles.gridContainer} spacing={8}></Grid>
             <Container>
                 <h2>Sign a Document</h2>
 
                 <div>
-                    <p>Here, you can digitally sign a document using the BNB Smart Chain. But what does that mean?</p>
+                    <p>Here, you can digitally sign a document using a blockchain. But what does that mean?</p>
 
                     <p>Well, it means that you're adding a secure and tamper-proof record of your document to a blockchain system. It's like having an unforgeable digital signature! To sign your document, you'll need a software wallet like MetaMask or Trust Wallet. These wallets allow you to securely interact with the blockchain.</p>
 
@@ -105,7 +111,21 @@ const SignDocument = () => {
                 )}
             </Container>
         </Wrapper>
+
+
     );
+
 };
+
+const styles = {
+    gridContainer: css`
+padding: 24px;
+@media (min-width: 600px) {
+  padding-left: 60px;
+  padding-right: 60px;
+}
+`,
+}
+
 
 export default SignDocument;

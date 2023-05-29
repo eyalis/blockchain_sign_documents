@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { connectWallet } from "./web3Helper";
 import { Wrapper, Container, Form, Input, Button } from "./styles/IssueDocumentStyles";
+import BlockchainInfo from './components/BlockchainInfo';
+import { Grid } from "@mui/material";
+import { css } from "@emotion/react";
 
 const IssueDocument = () => {
   const [ipfsHash, setIpfsHash] = useState("");
@@ -42,18 +45,20 @@ const IssueDocument = () => {
 
   return (
     <Wrapper>
+      <BlockchainInfo />
+      <Grid container sx={styles.gridContainer} spacing={8}></Grid>
       <Container>
         <h2>Issue a Document</h2>
 
         <p>
-          On this page, you can "issue" a document onto the BNB Smart Chain.
+          On this page, you can "issue" a document onto a blockchain.
           What does that mean? Well, it essentially means that you're recording a document in a system
           that's nearly impossible to counterfeit or alter. Pretty cool, right?
         </p>
         <p>
-          You just need to provide two things: an IPFS hash and the BNB addresses of the people
+          You just need to provide two things: an IPFS hash and the addresses of the people
           authorized to sign the document. The IPFS hash is like an address that can be accessed
-          to view your document, while the BNB addresses are like unique digital signatures for
+          to view your document, while the addresses are like unique digital signatures for
           each person who needs to sign your document. Exciting stuff!
         </p>
 
@@ -103,5 +108,15 @@ const IssueDocument = () => {
     </Wrapper>
   );
 };
+
+const styles = {
+  gridContainer: css`
+padding: 24px;
+@media (min-width: 600px) {
+padding-left: 60px;
+padding-right: 60px;
+}
+`,
+}
 
 export default IssueDocument;

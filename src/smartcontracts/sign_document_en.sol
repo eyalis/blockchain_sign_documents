@@ -3,10 +3,15 @@ pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/utils/Counters.sol";
+import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract DocumentSigner is ERC721 {
+contract DocumentSigner is ERC721, ReentrancyGuard, Ownable {
     using Counters for Counters.Counter;
     Counters.Counter private _documentIds;
+
+    // Max signers per document
+    uint256 public constant MAX_SIGNERS = 10;
 
     // Structure to store document information
     struct Document {
@@ -38,7 +43,12 @@ contract DocumentSigner is ERC721 {
     function registerDocument(
         string memory ipfsHash,
         address[] memory signers
-    ) public {
+    ) public onlyOwner {
+        require(
+            signers.length > 0 && signers.length <= MAX_SIGNERS,
+            "DocumentSigner: Document must have at least one signer and not more than the maximum allowed"
+        );
+
         // Increment the document ID
         _documentIds.increment();
 
@@ -68,6 +78,18 @@ contract DocumentSigner is ERC721 {
 
         // Create the ERC721 token and assign it to the document owner
         _mint(msg.sender, newDocumentId);
+    }
+
+    function transferDocumentOwnership(
+        uint256 documentId,
+        address newOwner
+    ) public onlyOwner {
+        require(
+            _exists(documentId),
+            "DocumentSigner: The document does not exist"
+        );
+        _transfer(_documents[documentId].owner, newOwner, documentId);
+        _documents[documentId].owner = newOwner;
     }
 
     function getDocument(
@@ -131,5 +153,17 @@ contract DocumentSigner is ERC721 {
             "DocumentSigner: The document does not exist"
         );
         return _documents[documentId].signerList;
+    }
+
+    // Check if a signer has signed a document
+    function hasSigned(
+        uint256 documentId,
+        address signer
+    ) public view returns (bool) {
+        require(
+            _exists(documentId),
+            "DocumentSigner: The document does not exist"
+        );
+        return _documents[documentId].signatures[signer];
     }
 }

@@ -23,8 +23,8 @@ const SignerInfo = ({ documentId, signers, contractInstance }) => {
 
     return (
         <div>
-            <h3>Authorized Signers</h3>
             <p>Contract Address: {contractAddress}</p>
+            <h3>Authorized Signers</h3>
             <List>
                 {signers.map((signer, index) => (
                     <ListItem key={index}>
