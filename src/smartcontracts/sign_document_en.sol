@@ -2,14 +2,10 @@
 pragma solidity ^0.8.7;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
 import "@openzeppelin/contracts/security/ReentrancyGuard.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
 contract DocumentSigner is ERC721, ReentrancyGuard, Ownable {
-    using Counters for Counters.Counter;
-    Counters.Counter private _documentIds;
-
     // Max signers per document
     uint256 public constant MAX_SIGNERS = 10;
 
@@ -44,16 +40,11 @@ contract DocumentSigner is ERC721, ReentrancyGuard, Ownable {
         string memory ipfsHash,
         address[] memory signers
     ) public onlyOwner {
-        require(
-            signers.length > 0 && signers.length <= MAX_SIGNERS,
-            "DocumentSigner: Document must have at least one signer and not more than the maximum allowed"
-        );
+        require(signers.length > 0 && signers.length <= MAX_SIGNERS, 
+        "DocumentSigner: Document must have at least one signer and not more than the maximum allowed");
 
-        // Increment the document ID
-        _documentIds.increment();
-
-        // Assign the new document ID
-        uint256 newDocumentId = _documentIds.current();
+        // Create a unique document ID based on sender's address and current block number
+        uint256 newDocumentId = uint256(keccak256(abi.encodePacked(msg.sender, block.number)));
 
         // Create a new document and store it in the mapping
         Document storage document = _documents[newDocumentId];
@@ -80,10 +71,7 @@ contract DocumentSigner is ERC721, ReentrancyGuard, Ownable {
         _mint(msg.sender, newDocumentId);
     }
 
-    function transferDocumentOwnership(
-        uint256 documentId,
-        address newOwner
-    ) public onlyOwner {
+    function transferDocumentOwnership(uint256 documentId, address newOwner) public onlyOwner {
         require(
             _exists(documentId),
             "DocumentSigner: The document does not exist"
@@ -156,10 +144,7 @@ contract DocumentSigner is ERC721, ReentrancyGuard, Ownable {
     }
 
     // Check if a signer has signed a document
-    function hasSigned(
-        uint256 documentId,
-        address signer
-    ) public view returns (bool) {
+    function hasSigned(uint256 documentId, address signer) public view returns (bool) {
         require(
             _exists(documentId),
             "DocumentSigner: The document does not exist"
