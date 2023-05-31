@@ -12,7 +12,7 @@ const Footer = () => {
                 </Link>
                 {" | "}
                 <Link to="/info">
-                    About this App
+                    About this Web App
                 </Link>
             </Typography>
         </Box>

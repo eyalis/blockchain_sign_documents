@@ -57,7 +57,7 @@ const IssueDocument = () => {
         </p>
         <p>
           You just need to provide two things: an IPFS hash and the addresses of the people
-          authorized to sign the document. The IPFS hash is like an address that can be accessed
+          authorized to sign the document. The IPFS CID is like an address that can be accessed
           to view your document, while the addresses are like unique digital signatures for
           each person who needs to sign your document. Exciting stuff!
         </p>
@@ -66,7 +66,7 @@ const IssueDocument = () => {
         <Form onSubmit={handleSubmit}>
           <Input
             type="text"
-            placeholder="IPFS Hash"
+            placeholder="IPFS CID"
             value={ipfsHash}
             onChange={(e) => setIpfsHash(e.target.value)}
           />
